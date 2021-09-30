@@ -44,6 +44,10 @@
     </div>
   </div>
 </div>
+<br>
+<input placeholder="category" type="text" name="category" class="form-control"
+       [(ngModel)]="inputCategory">
+<h1>{{inputCategory}}</h1>
 <table class="table">
   <tr>
     <th>IdUser</th>
@@ -54,7 +58,9 @@
      <th>Delete</th>
   </tr>
   <tr *ngFor="let user of list"
-      [style.background-color]="getColor(user)">
+      [style.background-color]="getColor(user)"
+      [hidden]="user.accountCategory!=inputCategory
+       && inputCategory">
     <td>{{user.idUser}}</td>
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>

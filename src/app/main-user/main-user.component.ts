@@ -8,8 +8,8 @@ import {User} from "../model/user";
 })
 export class MainUserComponent implements OnInit {
   list: User[];
+  inputCategory: string;
   constructor() { }
-
   ngOnInit(): void {
     this.list = [
       {
