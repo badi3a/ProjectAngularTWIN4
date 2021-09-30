@@ -69,5 +69,9 @@ export class MainUserComponent implements OnInit {
       }
     ];
   }
+  delete(user: User){
+    let i = this.list.indexOf(user);
+    this.list.splice(i,1);
+  }
 
 }

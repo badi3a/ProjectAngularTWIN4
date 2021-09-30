@@ -46,14 +46,28 @@
 </div>
 <table class="table">
   <tr>
-    <th>IdUser</th><th> fisrtName</th><th>Last Name</th><th>password</th><th>profession</th>
+    <th>IdUser</th>
+    <th> fisrtName</th>
+    <th>Last Name</th>
+    <th>Category</th>
+    <th>profession</th>
+     <th>Delete</th>
   </tr>
   <tr *ngFor="let user of list">
-    <td><img src="{{user.picture}}"> </td>
     <td>{{user.idUser}}</td>
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>
-    <td>{{user.password}}</td>
+    <td>{{user.accountCategory}}</td>
     <td>{{user.profession}}</td>
+    <td>
+      <button (click)="delete(user)"
+              [disabled]="user.accountCategory=='Admin'">
+      delete 1
+     </button>
+      <button (click)="delete(user)"
+              *ngIf="user.accountCategory!='Admin'">
+        delete 2
+      </button>
+    </td>
   </tr>
 </table>
