@@ -13,7 +13,7 @@ export class MainUserComponent implements OnInit {
   ngOnInit(): void {
     this.list = [
       {
-        idCustomer: 1,
+        idUser: 1,
         firstName: "Mila",
         lastName: " Kunis",
         birthDate: "30-06-1999",
@@ -24,7 +24,7 @@ export class MainUserComponent implements OnInit {
         profession: "Software Engineer"
       },
       {
-        idCustomer: 2,
+        idUser: 2,
         firstName: "George",
         lastName: "Clooney",
         birthDate: "10-02-1981",
@@ -35,7 +35,7 @@ export class MainUserComponent implements OnInit {
         profession: "Software Engineer"
       },
       {
-        idCustomer: 3,
+        idUser: 3,
         firstName: "George",
         lastName:  "Clooney",
         birthDate: "10-02-1981",
@@ -46,7 +46,7 @@ export class MainUserComponent implements OnInit {
         profession: "Software Engineer"
       },
       {
-        idCustomer: 4,
+        idUser: 4,
         firstName: "Ryan",
         lastName:  "Gossling",
         birthDate: "05-03-1987",
@@ -57,7 +57,7 @@ export class MainUserComponent implements OnInit {
         profession: "Software Engineer"
       },
       {
-        idCustomer: 4,
+        idUser: 4,
         firstName: "Robert",
         lastName:  "Downey",
         birthDate: "05-03-2002",

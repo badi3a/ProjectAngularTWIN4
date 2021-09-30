@@ -1,7 +1,6 @@
 
 <img src="assets/slide.png ">
 <br><br>
-
 <div class="row">
   <br>
   <div class="col-md-3">
@@ -45,4 +44,16 @@
     </div>
   </div>
 </div>
-
+<table class="table">
+  <tr>
+    <th>IdUser</th><th> fisrtName</th><th>Last Name</th><th>password</th><th>profession</th>
+  </tr>
+  <tr *ngFor="let user of list">
+    <td><img src="{{user.picture}}"> </td>
+    <td>{{user.idUser}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.password}}</td>
+    <td>{{user.profession}}</td>
+  </tr>
+</table>
