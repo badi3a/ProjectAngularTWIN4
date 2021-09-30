@@ -53,7 +53,8 @@
     <th>profession</th>
      <th>Delete</th>
   </tr>
-  <tr *ngFor="let user of list">
+  <tr *ngFor="let user of list"
+      [style.background-color]="getColor(user)">
     <td>{{user.idUser}}</td>
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>
