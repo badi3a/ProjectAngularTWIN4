@@ -7,9 +7,9 @@
     <div class="card" style="width: 18rem;">
       <img src="assets/admin.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Admin</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -17,9 +17,9 @@
     <div class="card" style="width: 18rem;">
       <img src="assets/customer.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Customer</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -27,9 +27,9 @@
     <div class="card" style="width: 18rem;">
       <img src="assets/golden.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Golden</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -37,48 +37,12 @@
     <div class="card" style="width: 18rem;">
       <img src="assets/blocked.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Blocked</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
 </div>
+<app-list-user></app-list-user>
 <br>
-<input placeholder="category" type="text" name="category" class="form-control"
-       [(ngModel)]="inputCategory">
-<h1>{{inputCategory}}</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>IdUser</th>
-      <th> fisrtName</th>
-      <th>Last Name</th>
-      <th>Category</th>
-      <th>profession</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of list"
-        [style.background-color]="getColor(user)"
-        [hidden]="user.accountCategory!=inputCategory
-         && inputCategory">
-      <td>{{user.idUser}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.accountCategory}}</td>
-      <td>{{user.profession}}</td>
-      <td>
-        <button class="btn btn-outline-primary" (click)="delete(user)"
-                [disabled]="user.accountCategory=='Admin'">
-          delete 1
-        </button>
-        <button class="btn btn-outline-primary" (click)="delete(user)"
-                *ngIf="user.accountCategory!='Admin'">
-          delete 2
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
