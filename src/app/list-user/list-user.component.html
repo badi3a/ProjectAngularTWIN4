@@ -1,0 +1,39 @@
+
+<input placeholder="category" type="text" name="category" class="form-control"
+       [(ngModel)]="inputCategory">
+<h1>{{inputCategory}}</h1>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>IdUser</th>
+    <th> fisrtName</th>
+    <th>Last Name</th>
+    <th>Category</th>
+    <th>profession</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of list"
+      [style.background-color]="getColor(user)"
+      [hidden]="user.accountCategory!=inputCategory
+         && inputCategory">
+    <td>{{user.idUser}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.accountCategory}}</td>
+    <td>{{user.profession}}</td>
+    <td>
+      <button class="btn btn-outline-primary" (click)="delete(user)"
+              [disabled]="user.accountCategory=='Admin'">
+        delete 1
+      </button>
+      <button class="btn btn-outline-primary" (click)="delete(user)"
+              *ngIf="user.accountCategory!='Admin'">
+        delete 2
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

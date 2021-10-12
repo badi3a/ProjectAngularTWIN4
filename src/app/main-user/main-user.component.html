@@ -9,7 +9,7 @@
       <div class="card-body">
         <h5 class="card-title">Admin</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">details</a>
+        <a [routerLink]="['category','Admin']" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
       <div class="card-body">
         <h5 class="card-title">Customer</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">details</a>
+        <a [routerLink]="['category','Customer']" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
       <div class="card-body">
         <h5 class="card-title">Golden</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">details</a>
+        <a [routerLink]="['category','Golden']" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
@@ -39,10 +39,10 @@
       <div class="card-body">
         <h5 class="card-title">Blocked</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">details</a>
+        <a [routerLink]="['category','Blocked']" class="btn btn-primary">details</a>
       </div>
     </div>
   </div>
 </div>
-
+<router-outlet></router-outlet>
 <br>
