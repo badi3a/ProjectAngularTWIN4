@@ -1,0 +1,32 @@
+<h1>Create Account</h1>
+<form class="w-50 mx-auto"  #f="ngForm">
+  <div class="form-group">
+    <label>FirstName</label>
+    <input type="text" name="firstName" class="form-control" [(ngModel)]="user.firstName"
+           minlength="3" required #fn="ngModel" pattern="[a-zA-Z]+$">
+  </div>
+  <br>
+  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+    <div  *ngIf="fn.hasError('minlength')">minlength is equal to 3</div>
+    <div *ngIf="fn.hasError('required')">first name is a required filed</div>
+    <div *ngIf="fn.hasError('pattern')">error pattern</div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>LastName</label>
+    <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName"
+           required>
+  </div>
+  <br>
+  <div class="alert alert-danger">
+    msg =>problem
+  </div>
+  <br>
+  <button class="btn btn-outline-success" [disabled]="f.invalid" (click)="save()">
+    Save
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="f.reset()">Reset</button>
+  <!--<button class="btn btn-outline-warning" type="reset">Reset</button>--->
+</form>
+

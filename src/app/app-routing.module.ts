@@ -6,6 +6,7 @@ import {ProductComponent} from "./product/product.component";
 import {HomeComponent} from "./home/home.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {ListUserComponent} from "./list-user/list-user.component";
+import {FormUserComponent} from "./form-user/form-user.component";
 
 const ROUTES: Routes = [
   {path: 'user', component: MainUserComponent,children:[
@@ -13,6 +14,7 @@ const ROUTES: Routes = [
     ]},
   {path: 'product', component:ProductComponent},
   {path: 'home', component:HomeComponent},
+  {path: 'add', component:FormUserComponent},
   {path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: '**', component: NotfoundComponent},
 ];

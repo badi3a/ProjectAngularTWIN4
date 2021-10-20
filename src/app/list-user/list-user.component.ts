@@ -9,11 +9,12 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ListUserComponent implements OnInit {
   list: User[];
+  all: User[];
   inputCategory: string;
   category: string;
   constructor(private route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.list = [
+    this.all = [
       {
         idUser: 1,
         firstName: "Mila",
@@ -63,7 +64,7 @@ export class ListUserComponent implements OnInit {
         firstName: "Robert",
         lastName:  "Downey",
         birthDate: "05-03-2002",
-        accountCategory: "Blocked Account",
+        accountCategory: "Blocked",
         email: "robert@nicholson.com",
         password: "test",
         picture: "https://bootdey.com/img/Content/avatar/avatar5.png",
@@ -71,8 +72,12 @@ export class ListUserComponent implements OnInit {
       }
     ];
     this.route.paramMap.subscribe(
-      (params)=>console.log(params.get('category')))
-  }
+      (params)=> {
+        let category = params.get('category');
+        this.list = this.all.filter(user => user.accountCategory === category);
+
+  });}
+
   delete(user: User){
     let i = this.list.indexOf(user);
     this.list.splice(i,1);
