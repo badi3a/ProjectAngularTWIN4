@@ -22,6 +22,7 @@ export class FormUserComponent implements OnInit {
     this.userService.list.push(this.user);
     console.log(this.userService.list);
     this.route.navigate(['/user'])
+    this.userService.isLoginIn = true;
   }
 
 }

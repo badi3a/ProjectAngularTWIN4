@@ -62,5 +62,6 @@ export class UserService {
       profession: "Software Engineer"
     }
   ];
+  isLoginIn: boolean = false;
   constructor() { }
 }

@@ -1,0 +1,34 @@
+<h1>Login Form :D</h1>
+<form class="w-50 mx-auto" [formGroup]="myForm" (ngSubmit)="login(myForm)">
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" formControlName="email">
+    <div class="alert alert-danger" *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].touched">
+      <div *ngIf="myForm.controls['email'].hasError('required')">msg error required</div>
+      <div *ngIf="myForm.controls['email'].hasError('minlength')">msg error minlength</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" formControlName="psw">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" formControlName="confirmPsw">
+  </div>
+  <div class="alert alert-danger" *ngIf="myForm.controls['psw'].value!=myForm.controls['confirmPsw'].value
+   && myForm.controls['confirmPsw'].dirty">
+    please give a valid psw
+  </div>
+  <br>
+  <button type="submit" class="btn btn-outline-primary" [disabled]="myForm.invalid ||myForm.controls['psw'].value!=myForm.controls['confirmPsw'].value">
+    save
+  </button>
+  &nbsp;
+  <button type="reset" class="btn btn-outline-warning">reset</button>
+  <br>
+  <a routerLink="/subscribe">register !</a>
+</form>
+{{myForm.status |json}}
+<br>
+{{myForm.value  |json}}
