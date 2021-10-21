@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../model/user";
+import {UserService} from "../services/user.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-user',
@@ -8,17 +10,18 @@ import {User} from "../model/user";
 })
 export class FormUserComponent implements OnInit {
    user: User;
-   list: User[];
-  constructor() { }
+   //list: User[];
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.user = new User();
-    this.list=[];
+    //this.list=[];
   }
   save(){
-    this.user.accountCategory='Customer'
-    this.list.push(this.user);
-    console.log(this.list)
+    this.user.accountCategory ='Customer';
+    this.userService.list.push(this.user);
+    console.log(this.userService.list);
+    this.route.navigate(['/user'])
   }
 
 }
