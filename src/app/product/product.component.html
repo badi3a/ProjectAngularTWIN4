@@ -1,1 +1,14 @@
-<img src="assets/page-under-construction.jpg">
+<div class="card" style="width: 18rem;">
+  <img src="{{product.picture}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <p>price: {{product.price}} $</p>
+    <button class="btn btn-primary" (click)="notifyParent()">
+      like {{product.nbrLike}}
+    </button>
+    <button class="btn btn-warning" style="float: right" [hidden]="product.quantity===0">
+      buy
+    </button>
+  </div>
+</div>
