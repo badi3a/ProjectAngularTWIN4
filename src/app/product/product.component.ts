@@ -8,7 +8,7 @@ import {Product} from "../model/product";
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
-  @Output() notification: EventEmitter<Product>;
+  @Output() notification= new EventEmitter<Product>()
 
   constructor() { }
 
@@ -16,7 +16,6 @@ export class ProductComponent implements OnInit {
   }
   notifyParent(){
     //traitement
-    this.notification= new EventEmitter<Product>()
     this.notification.emit(this.product)
   }
 }
