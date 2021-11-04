@@ -6,8 +6,10 @@ import {Product} from "../model/product";
   templateUrl: './main-product.component.html',
   styleUrls: ['./main-product.component.css']
 })
+
 export class MainProductComponent implements OnInit {
   listProduct: Product[];
+  inputProduct : Product = new Product();
   showFormTemplate: boolean;
   constructor() { }
 
@@ -55,7 +57,13 @@ export class MainProductComponent implements OnInit {
  }
 
   saveProduct(product: Product) {
-    this.listProduct.push(product);
+    let i = this.listProduct.indexOf(product);
+    if (i!= -1){
+      this.listProduct[i]=product;
+    }else {
+      this.listProduct.push(product);
+
+    }
     this.showFormTemplate = false;
   }
   showForm(){
@@ -64,5 +72,11 @@ export class MainProductComponent implements OnInit {
   delete(p:Product){
     let i = this.listProduct.indexOf(p);
     this.listProduct.splice(i,1)
+  }
+  updateForm(p:Product){
+    this.showFormTemplate=true;
+    this.inputProduct = p;
+
+
   }
 }

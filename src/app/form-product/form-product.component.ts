@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {Form, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../model/product";
 
@@ -12,19 +12,24 @@ export class FormProductComponent implements OnInit {
   private product: Product;
 
   @Output() addEvent = new EventEmitter<Product>()
+  @Input() updateProduct : Product;
 
   constructor(private builder : FormBuilder) { }
 
   ngOnInit(): void {
-    this.product = new Product();
+    if (this.updateProduct === null){
+      this.product = new Product();
+    } else {
+      this.product = this.updateProduct;
+    }
 
     this.form = this.builder.group({
-      'title' : ['', [Validators.required, Validators.minLength(5)]],
-      'description' : ['', Validators.required],
-      'price' : ['', [Validators.required, Validators.min(10)]],
-      'picture' : ['default.png', Validators.required],
-      'category' : ['', Validators.required],
-      'quantity' : ['0', [Validators.required, Validators.min(0)]]
+      'title' : [this.product.title, [Validators.required, Validators.minLength(5)]],
+      'description' : [this.product.description, Validators.required],
+      'price' : [this.product.price, [Validators.required, Validators.min(10)]],
+      'picture' : [this.product.picture, Validators.required],
+      'category' : [this.product.category, Validators.required],
+      'quantity' : [this.product.quantity, [Validators.required, Validators.min(0)]]
     });
   }
 
