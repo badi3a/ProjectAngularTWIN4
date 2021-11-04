@@ -61,4 +61,8 @@ export class MainProductComponent implements OnInit {
   showForm(){
     this.showFormTemplate =true
   }
+  delete(p:Product){
+    let i = this.listProduct.indexOf(p);
+    this.listProduct.splice(i,1)
+  }
 }
