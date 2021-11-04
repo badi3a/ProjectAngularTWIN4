@@ -6,7 +6,8 @@
   <thead>
   <tr>
     <th>IdUser</th>
-    <th> fisrtName</th>
+    <th> Picture</th>
+    <th> FirstName</th>
     <th>Last Name</th>
     <th>Category</th>
     <th>profession</th>
@@ -19,6 +20,7 @@
       [hidden]="user.accountCategory!=inputCategory
          && inputCategory">
     <td>{{user.idUser}}</td>
+    <td><img src="{{user.picture}}"></td>
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>
     <td>{{user.accountCategory}}</td>

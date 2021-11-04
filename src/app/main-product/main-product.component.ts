@@ -35,7 +35,15 @@ export class MainProductComponent implements OnInit {
         quantity: 2,
         nbrLike: 0,
         category: 'category1',
-        picture: 'assets/t shirt 1.jpg'}
+        picture: 'assets/t shirt 1.jpg'},
+      { id: "9",
+        title: "T-shirt 4",
+        description: "product description.....",
+        price: 100,
+        quantity: 10,
+        nbrLike: 2,
+        category: 'category1',
+        picture: 'assets/t shirt 2.jpg'}
     ]
   }
  like(p:Product){
