@@ -7,8 +7,11 @@
     <button class="btn btn-primary" (click)="notifyParent()">
       like {{product.nbrLike}}
     </button>
+    &nbsp;
+    <button class="btn btn-outline-danger">delete</button>
     <button class="btn btn-warning" style="float: right" [hidden]="product.quantity===0">
       buy
     </button>
+
   </div>
 </div>

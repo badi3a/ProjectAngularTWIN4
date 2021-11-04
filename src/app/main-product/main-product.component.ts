@@ -8,9 +8,11 @@ import {Product} from "../model/product";
 })
 export class MainProductComponent implements OnInit {
   listProduct: Product[];
+  showFormTemplate: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.showFormTemplate = false;
     this.listProduct= [
       { id: "123",
         title: "T-shirt 1",
@@ -54,5 +56,9 @@ export class MainProductComponent implements OnInit {
 
   saveProduct(product: Product) {
     this.listProduct.push(product);
+    this.showFormTemplate = false;
+  }
+  showForm(){
+    this.showFormTemplate =true
   }
 }
