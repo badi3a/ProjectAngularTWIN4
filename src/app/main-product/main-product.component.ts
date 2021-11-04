@@ -43,11 +43,16 @@ export class MainProductComponent implements OnInit {
         quantity: 10,
         nbrLike: 2,
         category: 'category1',
-        picture: 'assets/t shirt 2.jpg'}
+        picture: 'assets/t shirt 2.jpg'},
+
     ]
   }
  like(p:Product){
     let i = this.listProduct.indexOf(p);
     this.listProduct[i].nbrLike++;
  }
+
+  saveProduct(product: Product) {
+    this.listProduct.push(product);
+  }
 }

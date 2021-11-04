@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { MainProductComponent } from './main-product/main-product.component';
 import { BestSellerProductComponent } from './best-seller-product/best-seller-product.component';
 import { ProductComponent } from './product/product.component';
+import { FormProductComponent } from './form-product/form-product.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ProductComponent } from './product/product.component';
     LoginComponent,
     MainProductComponent,
     BestSellerProductComponent,
-    ProductComponent
+    ProductComponent,
+    FormProductComponent
   ],
   imports: [
     BrowserModule,

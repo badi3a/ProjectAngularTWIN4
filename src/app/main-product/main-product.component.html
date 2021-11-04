@@ -1,4 +1,5 @@
 <a routerLink="bestSeller">best Seller</a>
+<app-form-product (addEvent)="saveProduct($event)"></app-form-product>
 <div class="row">
   <app-product class="col-md-3" *ngFor="let object of listProduct"
   [product]="object" (notification)="like($event)">
