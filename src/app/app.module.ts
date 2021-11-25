@@ -15,6 +15,7 @@ import { MainProductComponent } from './main-product/main-product.component';
 import { BestSellerProductComponent } from './best-seller-product/best-seller-product.component';
 import { ProductComponent } from './product/product.component';
 import { FormProductComponent } from './form-product/form-product.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FormProductComponent } from './form-product/form-product.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

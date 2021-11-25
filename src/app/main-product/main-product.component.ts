@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../model/product";
+import {ProductService} from "../services/product.service";
 
 @Component({
   selector: 'app-main-product',
@@ -11,45 +12,13 @@ export class MainProductComponent implements OnInit {
   listProduct: Product[];
   inputProduct : Product = new Product();
   showFormTemplate: boolean;
-  constructor() { }
+  constructor(private proService: ProductService) { }
 
   ngOnInit(): void {
     this.showFormTemplate = false;
-    this.listProduct= [
-      { id: "123",
-        title: "T-shirt 1",
-        description: "product description.....",
-        price: 12,
-        quantity: 0,
-        nbrLike: 2,
-        category: 'category1',
-        picture: 'assets/t shirt 1.jpg'},
-      { id: "89",
-        title: "T-shirt 2",
-        description: "product description.....",
-        price: 100,
-        quantity: 10,
-        nbrLike: 2,
-        category: 'category1',
-        picture: 'assets/t shirt 2.jpg'},
-      {id: "15",
-        title: "T-shirt 3",
-        description: "product description.....",
-        price: 134,
-        quantity: 2,
-        nbrLike: 0,
-        category: 'category1',
-        picture: 'assets/t shirt 1.jpg'},
-      { id: "9",
-        title: "T-shirt 4",
-        description: "product description.....",
-        price: 100,
-        quantity: 10,
-        nbrLike: 2,
-        category: 'category1',
-        picture: 'assets/t shirt 2.jpg'},
-
-    ]
+    this.proService.getListProduct().subscribe(
+      (data:Product[])=> this.listProduct=data
+    )
   }
  like(p:Product){
     let i = this.listProduct.indexOf(p);
@@ -59,9 +28,16 @@ export class MainProductComponent implements OnInit {
   saveProduct(product: Product) {
     let i = this.listProduct.indexOf(product);
     if (i!= -1){
-      this.listProduct[i]=product;
+      //update a product
+      this.proService.updateProduct(product).subscribe(
+        ()=>this.listProduct[i]=product
+      )
     }else {
-      this.listProduct.push(product);
+      //add a new product
+      this.proService.addProduct(product).subscribe(
+        ()=>this.listProduct.push(product),
+        ()=>console.log('error')
+      )
 
     }
     this.showFormTemplate = false;
@@ -71,7 +47,9 @@ export class MainProductComponent implements OnInit {
   }
   delete(p:Product){
     let i = this.listProduct.indexOf(p);
-    this.listProduct.splice(i,1)
+    this.proService.deleteProduct(p.id).subscribe(
+      ()=>this.listProduct.splice(i,1)
+    )
   }
   updateForm(p:Product){
     this.showFormTemplate=true;

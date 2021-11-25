@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "123",
+      "title": "T",
+      "description": "product description.....",
+      "price": 12,
+      "quantity": 0,
+      "nbrLike": 2,
+      "category": "category1",
+      "picture": "test"
+    },
+    {
+      "title": "testtSHIRT",
+      "description": "test",
+      "price": 12,
+      "picture": "test",
+      "quantity": 23,
+      "id": "aF7ny3q"
+    }
+  ],
+  "users": []
+}
